@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Descending Array Sorter</title>
+</head>
+<body>
+    <h1>Descending Array Sorter</h1>
+
+    <form>
+        <label for="inputArray">Enter numbers separated by spaces:</label>
+        <input type="text" id="inputArray" placeholder="e.g., 5 1 9 3 7" required>
+        <button type="button" onclick="sortDescending()">Sort Descending</button>
+    </form>
+
+    <p id="result"></p>
+
+    <script>
+        function sortDescending() {
+            const inputArray = document.getElementById("inputArray").value;
+            const numbers = inputArray.split(" ").map(Number);
+
+            if (!numbers.some(isNaN)) {
+                numbers.sort(function(a, b) {
+                    return b - a;
+                });
+                document.getElementById("result").textContent = "Sorted array in descending order: " + numbers.join(" ");
+            } else {
+                document.getElementById("result").textContent = "Invalid input. Please enter a list of numbers.";
+            }
+        }
+    </script>
+</body>
+</html>
